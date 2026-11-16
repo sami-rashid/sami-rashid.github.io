@@ -7,8 +7,9 @@
   --thumb-bg: #ffffff;
   --thumb-edge: rgba(0, 0, 0, 0.12);
 }
+/* Dark: follows the system unless the visitor picked light; data-theme="dark" forces it. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #15181c;
     --text: #e6e8eb;
     --muted: #9aa4ae;
@@ -16,8 +17,37 @@
     --rule: #30363d;
     --thumb-bg: #f4f4f4;
     --thumb-edge: rgba(255, 255, 255, 0.15);
+    color-scheme: dark;
   }
 }
+:root[data-theme="dark"] {
+  --bg: #15181c;
+  --text: #e6e8eb;
+  --muted: #9aa4ae;
+  --link: #79b8ff;
+  --rule: #30363d;
+  --thumb-bg: #f4f4f4;
+  --thumb-edge: rgba(255, 255, 255, 0.15);
+  color-scheme: dark;
+}
+:root[data-theme="light"] { color-scheme: light; }
+
+/* Theme toggle */
+.theme-toggle {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+.theme-toggle:hover { border-color: var(--muted); }
 
 * { box-sizing: border-box; }
 

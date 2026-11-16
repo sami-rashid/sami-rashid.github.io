@@ -81,3 +81,6 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule);
   ul.dated li { flex-direction: column; gap: 0; }
   .date { flex: none; }
 }
+
+ul.bullets { margin: 0; padding-left: 20px; }
+ul.bullets li { margin-bottom: 8px; }
